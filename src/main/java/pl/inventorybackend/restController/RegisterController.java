@@ -1,4 +1,4 @@
-package pl.inventorybackend.RestController;
+package pl.inventorybackend.restController;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

@@ -38,10 +38,6 @@ public class AuthenticationController {
         return ResponseEntity.ok(response);
     }
 
-    @GetMapping("/login2")
-    public ResponseEntity<String> getlogin(@RequestBody UserDTO user) {
 
-        return  new ResponseEntity<String>(user.toString(), HttpStatus.OK);
-    }
 
 }

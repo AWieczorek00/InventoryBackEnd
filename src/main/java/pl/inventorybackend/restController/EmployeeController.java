@@ -11,6 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/employee")
+@CrossOrigin(origins = "*")
 public class EmployeeController {
 
     private final EmployeeService employeeService;
@@ -22,8 +23,8 @@ public class EmployeeController {
 
     @GetMapping("/all")
     public ResponseEntity<List<Employee>> getAllEmployee(){
-        List<Employee> employees = employeeService.findAllEmployee();
-        return new ResponseEntity<>(employees, HttpStatus.OK);
+        List<Employee> employeeList = employeeService.findAllEmployee();
+        return new ResponseEntity<>(employeeList, HttpStatus.OK);
     }
 
     @PostMapping("/add")
@@ -33,10 +34,13 @@ public class EmployeeController {
     }
 
     @DeleteMapping("/delete")
+    @CrossOrigin(exposedHeaders="Access-Control-Allow-Origin")
     public ResponseEntity<?> deleteEmployee(@RequestBody Employee employeeFront){
         employeeService.deleteEmployee(employeeFront);
         return new ResponseEntity<>(HttpStatus.OK);
     }
+
+
 
 
 }

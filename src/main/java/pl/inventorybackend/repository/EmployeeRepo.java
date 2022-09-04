@@ -5,4 +5,5 @@ import org.springframework.stereotype.Repository;
 import pl.inventorybackend.entiti.Employee;
 @Repository
 public interface EmployeeRepo extends JpaRepository<Employee, Long> {
+    void deleteById(Long id);
 }

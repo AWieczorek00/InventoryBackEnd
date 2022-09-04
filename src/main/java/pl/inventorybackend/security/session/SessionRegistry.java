@@ -12,7 +12,7 @@ import java.util.UUID;
 
 @Component
 public class SessionRegistry {
-    private static final HashMap<String,String> SESSIONS = new HashMap<>();
+    private static final HashMap<String, String> SESSIONS = new HashMap<>();
 //    private final ValueOperations<String, String> redisSessionStorage;
 //
 //    @Autowired
@@ -47,10 +47,6 @@ public class SessionRegistry {
     }
 
     private String generateSessionId() {
-        return new String(
-                Base64.getEncoder().encode(
-                        UUID.randomUUID().toString().getBytes(StandardCharsets.UTF_8)
-                )
-        );
+        return new String(Base64.getEncoder().encode(UUID.randomUUID().toString().getBytes(StandardCharsets.UTF_8)));
     }
 }

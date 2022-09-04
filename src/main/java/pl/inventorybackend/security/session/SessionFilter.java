@@ -8,6 +8,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
+import pl.inventorybackend.security.User.CurrentUser;
 import pl.inventorybackend.security.User.UserService;
 
 import javax.servlet.FilterChain;
@@ -43,7 +44,7 @@ public class SessionFilter extends OncePerRequestFilter {
         }
 
 
-        final UserDetails currentUser = userService.loadUserByUsername(username);
+        final CurrentUser currentUser = userService.loadUserByUsername(username);
         final UsernamePasswordAuthenticationToken auth = new UsernamePasswordAuthenticationToken(
                 currentUser,
                 null,

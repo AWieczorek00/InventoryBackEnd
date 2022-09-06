@@ -35,7 +35,9 @@ public class EquipmentController {
 
     @PostMapping("/add")
     public ResponseEntity<Equipment> postElectronicEquipment(@RequestBody Equipment equipment){
-        System.out.println(equipment);
+        if(equipment.getEmployee().getId()==0){
+            equipment.setEmployee(null);
+        }
         Equipment electronicEquipment = equipmentService.addEquipment(equipment);
         return new ResponseEntity<>(electronicEquipment, HttpStatus.CREATED);
     }

@@ -29,8 +29,5 @@ public class Equipment {
     private Employee employee;
     private boolean isRepair;
 
-//    @ManyToOne
-//    @JoinColumn(name = "inventory_id", insertable = false, updatable = false)
-//    private Inventory inventory;
 
 }

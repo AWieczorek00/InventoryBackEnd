@@ -39,7 +39,10 @@ public class EquipmentService {
             equipmentUpdate.setName(equipment.getName());
             equipmentUpdate.setDateOfPurchase(equipment.getDateOfPurchase());
             equipmentUpdate.setSerialNumber(equipment.getSerialNumber());
+            equipmentUpdate.setTypeOfEquipment(equipment.getTypeOfEquipment());
             equipmentUpdate.setRepair(equipment.isRepair());
+            equipmentUpdate.setRoomNumber(equipment.getRoomNumber());
+            equipmentUpdate.setEmployee(equipment.getEmployee());
             return equipmentRepo.save(equipmentUpdate);
         }).orElseThrow(()-> new ResourcesNotFoundException("Nie znalezionego takiego sprzętu"));
     }

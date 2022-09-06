@@ -28,6 +28,12 @@ public class InventoryController {
         return new ResponseEntity<>(inventoryList, HttpStatus.OK);
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<Inventory> getOneInventory(@PathVariable Long id){
+        Inventory inventory = inventoryService.findOneInventory(id);
+        return new ResponseEntity<>(inventory,HttpStatus.OK);
+    }
+
 
     @PostMapping("/add")
     public ResponseEntity<Inventory> postInventory(@RequestBody Inventory inventoryFront) {

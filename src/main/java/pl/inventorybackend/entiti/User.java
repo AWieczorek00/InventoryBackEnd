@@ -30,32 +30,5 @@ public class User{
     @Column(nullable = false)
     private String password;
 
-//    private String role;
 
-
-//    @Override
-//    public Collection<? extends GrantedAuthority> getAuthorities() {
-////        return Collections.singleton(new SimpleGrantedAuthority(role));
-//        return Collections.singleton(new SimpleGrantedAuthority("ADMIN"));
-//    }
-//
-//    @Override
-//    public boolean isAccountNonExpired() {
-//        return false;
-//    }
-//
-//    @Override
-//    public boolean isAccountNonLocked() {
-//        return false;
-//    }
-//
-//    @Override
-//    public boolean isCredentialsNonExpired() {
-//        return false;
-//    }
-//
-//    @Override
-//    public boolean isEnabled() {
-//        return false;
-//    }
 }

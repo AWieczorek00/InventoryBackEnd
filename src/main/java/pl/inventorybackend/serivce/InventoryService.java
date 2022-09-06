@@ -22,6 +22,10 @@ public class InventoryService {
         return inventoryRepo.findAll();
     }
 
+    public Inventory findOneInventory(Long id){
+        return inventoryRepo.findInventoryById(id).orElseThrow();
+    }
+
     public Inventory addInventory(Inventory inventory) {
         return inventoryRepo.save(inventory);
 

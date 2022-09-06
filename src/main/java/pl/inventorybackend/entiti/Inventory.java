@@ -17,8 +17,6 @@ public class Inventory {
     private String inventoryName;
     private LocalDate dateOfCreation;
 
-
-
     @ManyToMany
     @JoinColumn(name = "equipment_id")
     private Set<Equipment> equipment;

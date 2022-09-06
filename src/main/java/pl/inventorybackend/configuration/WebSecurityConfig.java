@@ -1,6 +1,5 @@
 package pl.inventorybackend.configuration;
 
-import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Lazy;
@@ -12,11 +11,8 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import org.springframework.web.cors.CorsConfiguration;
-import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
-import org.springframework.web.filter.CorsFilter;
-import pl.inventorybackend.security.session.SessionFilter;
 import pl.inventorybackend.security.User.UserService;
+import pl.inventorybackend.security.session.SessionFilter;
 
 import javax.servlet.http.HttpServletResponse;
 
@@ -64,9 +60,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
         http.authorizeRequests()
                 .antMatchers("/api/login").permitAll()
-//                .antMatchers("/login2").permitAll()
                 .antMatchers("/h2-console/**").permitAll()
-//                .antMatchers("/equipment/**").permitAll()
 //                .antMatchers("/inventory/**").permitAll()
                 .anyRequest().authenticated();
 
@@ -76,17 +70,5 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         );
     }
 
-//    @Bean
-//    public FilterRegistrationBean corsFilter() {
-//        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-//        CorsConfiguration config = new CorsConfiguration();
-//        config.addAllowedOrigin("*");
-//        config.addAllowedHeader("*");
-//        config.addAllowedMethod("*");
-//        source.registerCorsConfiguration("/**", config);
-//        FilterRegistrationBean bean = new FilterRegistrationBean(new CorsFilter(source));
-//        bean.setOrder(0);
-//        return bean;
-//    }
 }
 

@@ -33,10 +33,10 @@ public class EmployeeController {
         return new ResponseEntity<>(employee, HttpStatus.CREATED);
     }
 
-    @DeleteMapping("/delete")
+    @DeleteMapping("/delete/{id}")
     @CrossOrigin(exposedHeaders="Access-Control-Allow-Origin")
-    public ResponseEntity<?> deleteEmployee(@RequestBody Employee employeeFront){
-        employeeService.deleteEmployee(employeeFront);
+    public ResponseEntity<?> deleteEmployee(@PathVariable Long id){
+        employeeService.deleteEmployee(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 

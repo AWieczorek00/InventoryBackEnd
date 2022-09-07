@@ -20,21 +20,21 @@ public class EquipmentService {
         this.equipmentRepo = equipmentRepo;
     }
 
-    public List<Equipment> findAllEquipment(){
+    public List<Equipment> findAllEquipment() {
         return equipmentRepo.findAll();
     }
 
-    public Equipment addEquipment(@NotNull Equipment equipment){
+    public Equipment addEquipment(@NotNull Equipment equipment) {
         return equipmentRepo.save(equipment);
     }
 
-    public void deleteElectronicEquipment(Equipment equipment){
+    public void deleteElectronicEquipment(Equipment equipment) {
         equipmentRepo.delete(equipment);
     }
 
 
     @Transactional
-    public Equipment updateElectronicEquipmentById(Long id, Equipment equipment){
+    public Equipment updateElectronicEquipmentById(Long id, Equipment equipment) {
         return equipmentRepo.findEquipmentById(id).map(equipmentUpdate -> {
             equipmentUpdate.setName(equipment.getName());
             equipmentUpdate.setDateOfPurchase(equipment.getDateOfPurchase());
@@ -44,10 +44,10 @@ public class EquipmentService {
             equipmentUpdate.setRoomNumber(equipment.getRoomNumber());
             equipmentUpdate.setEmployee(equipment.getEmployee());
             return equipmentRepo.save(equipmentUpdate);
-        }).orElseThrow(()-> new ResourcesNotFoundException("Nie znalezionego takiego sprzętu"));
+        }).orElseThrow(() -> new ResourcesNotFoundException("Nie znalezionego takiego sprzętu"));
     }
 
     public Equipment findOneEquipment(Long id) {
-        return equipmentRepo.findEquipmentById(id).orElseThrow();
+        return equipmentRepo.findEquipmentById(id).orElseThrow(() -> new ResourcesNotFoundException("Nie znalezionego takiego sprzętu"));
     }
 }

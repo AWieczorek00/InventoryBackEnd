@@ -41,6 +41,12 @@ public class InventoryController {
         return new ResponseEntity<>(inventory, HttpStatus.CREATED);
     }
 
+    @PutMapping("/update")
+    public ResponseEntity<Inventory> updateInventory(@RequestBody Inventory inventoryFront){
+        Inventory inventory = inventoryService.updateInventoryById(inventoryFront.getId(),inventoryFront);
+        return new ResponseEntity<>(inventory, HttpStatus.OK);
+    }
+
     @DeleteMapping("/delete")
     public ResponseEntity<?> deleteInventory(@RequestBody Inventory inventoryFront) {
         inventoryService.delete(inventoryFront);
